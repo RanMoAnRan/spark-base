@@ -48,7 +48,6 @@ object SparkSQLCsv {
         StructField("timestamp", LongType, nullable = true) :: Nil
     )
 
-    spark.read.jdbc()
 
     val ratingsDF: DataFrame = spark.read
       .schema(ratingSchema)
