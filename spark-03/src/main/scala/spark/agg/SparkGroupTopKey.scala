@@ -1,7 +1,6 @@
 package spark.agg
 
 import org.apache.spark.rdd.RDD
-import org.apache.spark.sql.types.StructField
 import org.apache.spark.{SparkConf, SparkContext}
 
 import scala.collection.mutable.ListBuffer
@@ -27,7 +26,7 @@ object SparkGroupTopKey {
     }
 
     // 2、读取数据，从HDFS上读取数据
-    val inputRDD: RDD[String] = sc.textFile("datas/group/group.data", minPartitions = 2)
+    val inputRDD: RDD[String] = sc.textFile("/datas/resources/group.data", minPartitions = 2)
 
 
     // 3、将数据进行转换为Key-Value类型的RDD

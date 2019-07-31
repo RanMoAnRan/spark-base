@@ -12,6 +12,7 @@
         <module>spark-01</module>
         <module>spark-02</module>
         <module>spark-03</module>
+        <module>spark-04</module>
     </modules>
 
     <!-- 指定仓库位置，依次为aliyun、cloudera和jboss仓库 -->
