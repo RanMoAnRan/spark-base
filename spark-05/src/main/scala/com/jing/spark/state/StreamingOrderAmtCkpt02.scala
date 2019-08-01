@@ -84,17 +84,7 @@ object StreamingOrderAmtCkpt02 {
   def main(args: Array[String]): Unit = {
 
     // TODO： 1、构建StreamingContext流式应用上下文实例对象
-    /*
-      def getOrCreate(
-          // 检查点目录，Streaming应用第一次运行，
-          // 目录不存在，调用creatingFunc函数构建StreamingContext实例对象；如果存在从检查点目录构建
-        checkpointPath: String,
-        // 目录不存在，调用creatingFunc函数构建StreamingContext实例对象
-        creatingFunc: () => StreamingContext,
-        hadoopConf: Configuration = SparkHadoopUtil.get.conf,
-        createOnError: Boolean = false
-      ): StreamingContext
-     */
+
     val context = StreamingContext.getOrCreate(
       CKPT_DIR, //
       () => {
@@ -109,7 +99,7 @@ object StreamingOrderAmtCkpt02 {
         // TODO: 设置检查点目录
         ssc.checkpoint(CKPT_DIR)
 
-        // 调用Streaming数据处理函数即可，当再次运行Streaming应用的时候，从CKPt获取如何读取数据，如何处理数据
+        // 调用Streaming数据处理函数即可，当再次运行Streaming应用的时候，从检查点获取如何读取数据，如何处理数据
         processStreaming(ssc)
 
         // 返回
